@@ -74,7 +74,10 @@ cd challenges/dev/frontend
 yarn start
 ```
   
-Então acessando o endereço http://localhost:3000 a aplicação já deverá estar funcionando normalmente.  
+Então acessando o endereço http://localhost:3000 a aplicação já deverá estar funcionando normalmente.
+Para acessar o sistema deve ser utilizado as seguintes credenciais:
+- Login: **admin**
+- Senha: **123456**
 
 ### Atenção
 Para que o projeto funcione são necessárias as seguintes dependências instaladas na máquina:  
