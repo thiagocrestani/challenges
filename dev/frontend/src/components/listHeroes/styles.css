@@ -1,0 +1,26 @@
+.hero-avatar-table {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  width: 45px;
+  height: 45px;
+}
+
+.hero-avatar-table img {
+  max-width: 30px;
+}
+
+td {
+  border-top: 1px solid #5c0d91;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+th {
+  text-align: left;
+}
+
+.button-column {
+  width: 60px;
+}

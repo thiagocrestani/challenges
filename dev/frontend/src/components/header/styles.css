@@ -1,0 +1,46 @@
+.header {
+  font-size: 25px;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: calc(100% - 40px);
+}
+
+.user-header {
+  position: relative;
+  display: flex;
+  margin-top: 9px;
+  font-size: 15px;
+  margin-left: auto;
+}
+
+.user-header button {
+  padding: 0px;
+  height: 23px;
+  padding: 0px 5px 0px 5px;
+  margin: 0px;
+  margin-left: 5px;
+  background-color: #410a66;
+  color: #ffffff;
+}
+
+.menu {
+  margin-left: 20px;
+  position: relative;
+  display: flex;
+  margin-top: 9px;
+  font-size: 15px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  opacity: 0.9;
+}
+
+.menu-item {
+  margin-left: 10px;
+}

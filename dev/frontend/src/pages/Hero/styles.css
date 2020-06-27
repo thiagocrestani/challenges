@@ -1,0 +1,58 @@
+.form-line {
+  padding-top: 8px;
+  font-size: 13px;
+}
+
+.form-center {
+  width: 500px;
+  margin-top: 20px;
+}
+
+.form-center input,
+select {
+  width: 100%;
+  height: 40px;
+  border: 0px;
+  outline: none;
+  background-color: #76399e;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+.form-center input {
+  width: calc(100% - 10px);
+  padding: 0px 5px 0px 5px;
+}
+
+.label-input {
+  color: #ffffff;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.form-center .cancel-button {
+  background-color: #7520ad;
+  color: #ffffff;
+}
+
+.hero-avatar {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  width: 130px;
+  height: 130px;
+}
+
+.line-form-avatar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-avatar img {
+  max-width: 90px;
+}
