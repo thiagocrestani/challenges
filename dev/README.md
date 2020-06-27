@@ -1,97 +1,125 @@
-### iHeros - Teste Fullstack
+### iHeros
     
-Este é o teste usado por nós aqui da ZRP para avaliar tecnicamente os candidatos a nossas vagas de desenvolvedores Fullstack. Se você estiver participando de um processo seletivo para nossa equipe, certamente em algum momento receberá este link, mas caso você tenha chegado aqui "por acaso", sinta-se convidado a desenvolver nosso teste e enviar uma mensagem para nós no e-mail jobs@zrp.com.br.
-
-Aqui na ZRP nós aplicamos este mesmo teste para as vagas em todos os níveis, ou seja, um candidato a uma vaga de dev júnior fará o mesmo teste de um outro candidato a uma vaga de dev sênior, mudando obviamente o nosso critério de avaliação do resultado do teste.
-
-Nós fazemos isso esperando que as pessoas mais iniciantes entendam qual o modelo de profissional que temos por aqui e que buscamos para o nosso time. Portanto, se você estiver se candidatando a uma vaga mais iniciante, não se assuste, e faça o melhor que você puder!
-
-### Instruções
-
-Você deverá criar um fork deste projeto, e desenvolver em cima do seu fork. Use o README principal do seu repositório para nos contar como foi resolver seu teste, as decisões tomadas, como você organizou e separou seu código, e principalmente as instruções de como rodar seu projeto.
-
-Lembre-se que este é um teste técnico e não um concurso público, portanto, não existe apenas uma resposta correta. Mostre que você é bom e nos impressione, mas não esqueça do objetivo do projeto.
-
-Nós não definimos um tempo limite para resolução deste teste, o que vale para nós e o resultado final e a evolução da criação do projeto até se atingir este resultado.
-    
-
-#### Descrição
-> Rede de cadastro(test backend) e distribuição(test frontend) de heroes, levando em consideração o nível da ameaça que estaria atacando uma determinada região.
-
 Você está no ano de 3150 e está a frente do setor de tecnologia responsável pelo desenvolvimento do sistema de gerenciamento de distribuição de Heros para combater ameaças. O sistema deve monitorar o sistema de alertas de ameças provido pela ONU e alocar os herois para cada nova ameaça existente no globo terrestre. 
 
-Para isso, será preciso implementar as seguintes funcionalidades:
-
+O sistema contém as funcionalidades:
  - Autenticação
- - Cadastre, edite, remova e liste herois
- - Aloque automaticamente o heroi mais adequado quando uma nova ameaça surgir.
- - Registre a desalocação de um heroi (entende-se por desalocação, o ato do heroi ja ter derrotado a ameaça, depois dele ter sido alocado).
- - Exiba o histórico de ameaças junto com quem foi o responsável por impedir a catástrofe.
+ - Cadastro, edição, remoção e listagem de herois
+ - Alocação automatica de heroi quando uma nova ameaça surge.
+ - Desaloação de herói (Final da batalha).
+ - Histórico de ameaças.
 
-Além disso, o lider de operações ordenou as seguintes regras para o desenvolvimento da aplicação:
+Além disso, existem algumas regras de negócio:
 - Cada **Hero** e **Ameaça** tem um rank
-- Os herois devem ser alocados de acordo com sua localização e rank adequado ao nível de ameaças. 
-- Os ranks são os seguintes:
+- Os herois são alocados de acordo com sua localização e rank adequado ao nível de ameaças.
 
-**Heroes**
-Classe S, A, B e C.
+O projeto está divido em duas partes:  
+- Back-end – Desenvolvido em Node js.  
+- Front-end – Desenvolvido em React JS.  
+Além disso ele utiliza NoSql com um banco de dados utilizando MongoDB.  
 
-**Ameaças**
-Nível Gold, Silver, Copper e Wood.
 
-- Herois do rank classe "S" tem prioridade sobre ameaças do tipo "Gold";
-- Herois do rank classe "A" tem prioridade sobre ameaças do tipo "Silver";
-- Herois do rank classe "B" tem prioridade sobre ameaças do tipo "Copper";
-- Herois do rank classe "C" tem prioridade sobre ameaças do tipo "Wood";
+## Back-end
+O back-end da aplicação foi construído em NodeJS respeitando os padrões MVC. Ele fornece a API para conexão do front-end e é responsável pela comunicação com o servidor de banco de dados. É no back-end que é feita a integração com o socket de ameaças, ele analisa todas as ameaças e faz a alocação do herói mais adequado para determinada ameaça de forma automática.
+Para testar seu funcionamento foram desenvolvidos alguns casos de testes que analisam o funcionamento da aplicação em diferentes situações.
 
-> Bônus: Alocar multiplos herois de ranks menores em uma mesma ameaça de rank maior. (Utilize a proporção que achar melhor).
+## Front-end
+O front-end da aplicação foi desenvolvido em React Js. Ele tem uma estrutura componentizada para facilitar sua organização e melhorar seu desempenho.
+Ele contém alguns casos de testes, que verificam os resultados de operações básicas e o comportamento dos componentes na renderização da tela. 
 
-Você devera consumir um socket que retornas as informações das ameaças, cada ameça tem o seguinte formato de objeto:
+Ele possui quatro páginas, Login, Heróis, Batalhas e Herói. 
+- Login: Na página de Login o usuário administrador pode inserir suas credenciais para monitorar as atividades dos heróis, em seguida ele é redirecionado para a página de batalhas. 
 
-``` 
-{
-    location: {
-        lat: -5.836597,
-        lng: -35.236007,
-    },
-    dangerLevel: 'S',
-    monsterName: 'Black Dragon',
-}
+![Login](https://uploaddeimagens.com.br/images/002/733/452/full/Captura_de_Tela_2020-06-26_a%CC%80s_17.54.24.png)
+
+
+- Batalhas: Nessa página o usuário pode ver todas as batalhas que estão ocorrendo e marcar a batalha como encerrada, fazendo a desalocação do herói disponibilizando-o para uma nova batalha. 
+
+![Batalhas](https://uploaddeimagens.com.br/images/002/733/458/full/Captura_de_Tela_2020-06-26_a%CC%80s_17.54.10.png)
+
+- Heróis: Nessa tela é possível ver todos os heróis cadastrados no sistema e sua classificação, além de disponibilizar as opções de editar e excluir os heróis.
+
+![Heróis](https://uploaddeimagens.com.br/images/002/733/460/original/Captura_de_Tela_2020-06-26_a%CC%80s_17.53.45.png)
+
+- Herói: Nessa página o usuário pode cadastrar ou editar um herói indicando seu nome e classe.  
+
+![Herói](https://uploaddeimagens.com.br/images/002/733/461/original/Captura_de_Tela_2020-06-26_a%CC%80s_17.53.57.png)
+
+
+## Como utilizar
+Depois de baixar ou clonar o projeto navegue até a pasta do projeto utilizando o terminal.   
+Em seguida, é necessário instalar as dependências, para isso execute os comandos nas pastas api e frontend:  
+  
+```shell
+cd challenges/dev/api  
+yarn install
+```
+  
+```shell
+cd challenges/dev/frontend
+yarn install
+```
+  
+Após isso o projeto pode ser utilizado.  
+Primeiro abra uma janela do terminal vá até a pasta do projeto e execute os comandos para iniciar o back-end:  
+```shell
+cd challenges/dev/api
+node src/index.js
+```
+  
+A aplicação devera iniciar em http://localhost:8000.  
+Após isso ainda com o terminal aberto e o back-end iniciado, abra outra janela do terminal e navegue até a pasta do projeto. Depois execute os seguintes comandos:  
+```shell
+cd challenges/dev/frontend
+yarn start
+```
+  
+Então acessando o endereço http://localhost:3000 a aplicação já deverá estar funcionando normalmente.  
+
+### Atenção
+Para que o projeto funcione são necessárias as seguintes dependências instaladas na máquina:  
+- NodeJs: https://nodejs.org/en/download/  
+- NPM: https://docs.npmjs.com/cli/install  
+- Yarn: https://yarnpkg.com/lang/en/docs/install/  
+
+
+## Testes
+O projeto contém testes no front-end e back-end.  
+Para executar os testes de back-end é necessário iniciar o back-end da aplicação conforme os passos descritos no item anterior.  
+Em seguida abrir uma nova janela do terminal, navegar até a pasta do projeto e executar os seguintes comandos:  
+```shell
+cd challenges/dev/api
+mocha
 ```
 
-A url do serviço de socket é a: 
+Os resultados esperados são algo parecido com: 
+```shell
+  Test Hero methods
+    ✓ Test CRUD hero
 
-`https://zrp-challenge-socket.herokuapp.com:443`
+  Test User methods
+    ✓ Test login method (280ms)
+    ✓ Test restriced pages
 
-E o evento a ser escutado é o `occurrence` 
 
+  3 passing (315ms)
+```
 
-### Tecnologias 
+Para executar os testes no front-end é necessário abrir uma janela do terminal e acessar a pasta do projeto (com o back-end inciado), então digitar os seguintes comandos:  
 
-**Frontend**
+```shell
+cd challenges/dev/frontend
+yarn test
+```
 
-- Vue
-- Angular
-- React
+Os resultados esperados são parecidos com:  
+```shell
+ PASS  src/tests/Pages/Battles.test.js
+ PASS  src/tests/Pages/Login.test.js
+ PASS  src/tests/Pages/Heroes.test.js
 
-**Backend**
-
-- Node.Js
-- Ruby
-- Python
-- Elixir
-- C#
-- Go
-
-Para persisitir os dados utilize o meio que achar mais conveniente :).
-
-###  O que iremos avaliar
-
-- Modelagem de Dados
-- Domínio da Linguagem
-- Legibilidade do Código
-- Estrutura do Código
-- Organização do Código
-- Design Patterns
-- Manutenibilidade do Código
-- Testes Unitários e Cobertura de Testes
+Test Suites: 3 passed, 3 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        3.672s
+```
